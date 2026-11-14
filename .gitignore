@@ -1,0 +1,8 @@
+# Минимальный слой до появления base/.gitignore (окно 1).
+node_modules/
+*.log
+*.tmp
+Thumbs.db
+.DS_Store
+.idea/
+.vscode/

@@ -45,7 +45,7 @@ append-only журнал, линтер расхождений «документ
 Файлы: `PLAN.md`, `HANDOFF.md`, `IDEAS.md`, `.gitignore`.
 Готовность: `git status` пуст, `origin/main` содержит коммит, `dance-autoreg` не изменён.
 
-### Окно 1 · Каркас `base/` + `core/` — [ ]
+### Окно 1 · Каркас `base/` + `core/` — [x]
 
 - `base/`: `.gitignore`, `.gitattributes`, `.editorconfig`, `LICENSE` (MIT).
 - `core/`: `AGENTS.template.md` (13 разделов, §«Сессии и перенос контекста», §«Формат ответов» с рабочим каталогом), `README.template.md`, `CHANGELOG.template.md`, `NOTES.template.md`.

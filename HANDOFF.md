@@ -10,42 +10,49 @@
 
 ## Текущее окно
 
-0 · Точка передачи — завершено. Следующее: окно 1 «Каркас `base/` + `core/`».
+1 · Каркас `base/` + `core/` — завершено. Следующее: окно 2 «SPEC, правила, пресеты, ADR».
 
 ## Цель ближайшего шага
 
-Создать `base/` (4 файла) и `core/` (AGENTS, README, CHANGELOG, NOTES) с плейсхолдерами,
-плюс `profiles/{minimal,standard,full}.md`.
+`core/SPEC.template.md`; `rules/universal-rules.md` (`KIT-1…KIT-15` с родословной);
+`presets/README.md` и три группы пресетов; `docs/decisions/ADR-0001-docops-kit.md`, `ADR-0002-presets-per-group.md`.
 
 ## Сделано
 
-- Репозиторий создан и склонирован пользователем; `README.md` — заглушка, `Initial commit`.
-- `PLAN.md` (окна 0–7, правила окна, бюджет, запреты), `HANDOFF.md`, `IDEAS.md` (I-01…I-05), `.gitignore`.
+- Окно 0: `PLAN.md`, `HANDOFF.md`, `IDEAS.md`, `.gitignore` — коммит `9291d88`.
+- Окно 1 (коммит `feat: каркас base/ и core/, профили minimal/standard/full`):
+  `base/` — `.gitignore`, `.gitattributes`, `.editorconfig`, `LICENSE`;
+  `core/` — `AGENTS.template.md` (13 разделов), `README.template.md`, `CHANGELOG.template.md`, `NOTES.template.md`;
+  `profiles/` — `minimal.md`, `standard.md`, `full.md`; `docs/sessions/S-01.md`.
 
 ## Сломано / в работе
 
-Ничего. Набор пуст по содержимому — ожидаемо для окна 0.
+Ничего. Линтера `node checks/docs.test.js` ещё нет (окно 4) — проверки окна 1 сделаны скриптом на `node -e`.
 
-## Дальше (3 шага)
-
-1. Шаг 0: `pwd`, `git remote -v` — убедиться, что каталог `docops-kit`, а не `dance-autoreg`.
-2. Окно 1: `base/` → `core/` (AGENTS первым: §«Сессии и перенос контекста», §«Формат ответов»).
-3. Коммит окна 1 и `docs/sessions/S-01.md`.
-
-## Вопросы к пользователю
-
-Блокирующих нет. Открыто: появится ли третья группа проектов кроме backend/frontend — решит первый такой проект.
-
-## Команды проверки
+## Проверки окна 1
 
 | Команда | Ожидание | Статус |
 |---|---|---|
-| `git status --short` | пусто между окнами | ✅ пусто |
-| `node checks/kit.test.js` | появится в окне 4 | — |
-| `node checks/docs.test.js` | появится в окне 4 | — |
+| `node -e` обход 8 новых файлов на относительные ссылки | битых нет | ✅ 3 ссылки, все — на существующие профили |
+| `node -e` заголовки `core/AGENTS.template.md` | 13 разделов, §8 и §13 на месте | ✅ 13; шаг 0 (`pwd`, `git rev-parse --show-toplevel`, `git remote -v`), KIT-15 |
+| `node -e` баланс `{{` / `}}` | открытых = закрытых, имён 8 | ✅ 17 = 17 |
+| `grep -n "node checks/docs.test.js" profiles/*` | одна команда, различие только флагом | ✅ `full` — `--report strict` |
+| `test -d .github` | каталога нет | ✅ нет |
+| `git status --short` | пусто между окнами | ✅ пусто после коммита |
+
+## Дальше (3 шага)
+
+1. Шаг 0: `pwd`, `git rev-parse --show-toplevel`, `git remote -v` — сверить с этим файлом.
+2. Окно 2: `core/SPEC.template.md` → `rules/universal-rules.md` (`KIT-1…KIT-15`) → `presets/` → два ADR.
+3. В окне 2 заменить в `AGENTS.template.md` §5 упоминание `rules/universal-rules.md` кодом на markdown-ссылку — файл появится.
+
+## Вопросы к пользователю
+
+Блокирующих нет. Открыто: `LICENSE` самого набора в корне (сейчас MIT только в `base/LICENSE` как шаблон) — решается в окне 6 вместе с README и CHANGELOG набора.
 
 ## Не делать в следующем окне
 
 - Не тянуть CI/CD (`.github/`, workflows) — `IDEAS.md` I-04, отклонено.
 - Не создавать полностековый пресет — I-01, отклонено.
 - Не пинить версии в пресетах — проверка №21.
+- Не ссылаться на ещё не существующие файлы (`rules/`, `presets/`, `checks/`): ссылки добавляются в окнах 2 и 4.

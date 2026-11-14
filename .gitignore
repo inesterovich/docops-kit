@@ -1,4 +1,4 @@
-# Минимальный слой до появления base/.gitignore (окно 1).
+# Слой самого набора; шаблон для проектов — base/.gitignore.
 node_modules/
 *.log
 *.tmp

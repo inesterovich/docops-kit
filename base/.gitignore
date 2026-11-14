@@ -1,0 +1,26 @@
+# Зависимости
+node_modules/
+
+# Сборка и кэш
+dist/
+build/
+coverage/
+.cache/
+
+# Логи и временные файлы
+*.log
+*.tmp
+*.temp
+
+# Переменные окружения и секреты
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# ОС и IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

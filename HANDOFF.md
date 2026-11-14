@@ -20,7 +20,7 @@
 ## Сделано
 
 - Окно 0: `PLAN.md`, `HANDOFF.md`, `IDEAS.md`, `.gitignore` — коммит `9291d88`.
-- Окно 1 (коммит `feat: каркас base/ и core/, профили minimal/standard/full`):
+- Окно 1 — коммит `027e2fb` (`feat: каркас base/ и core/, профили minimal/standard/full`):
   `base/` — `.gitignore`, `.gitattributes`, `.editorconfig`, `LICENSE`;
   `core/` — `AGENTS.template.md` (13 разделов), `README.template.md`, `CHANGELOG.template.md`, `NOTES.template.md`;
   `profiles/` — `minimal.md`, `standard.md`, `full.md`; `docs/sessions/S-01.md`.

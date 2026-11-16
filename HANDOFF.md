@@ -24,6 +24,7 @@
   `base/` — `.gitignore`, `.gitattributes`, `.editorconfig`, `LICENSE`;
   `core/` — `AGENTS.template.md` (13 разделов), `README.template.md`, `CHANGELOG.template.md`, `NOTES.template.md`;
   `profiles/` — `minimal.md`, `standard.md`, `full.md`; `docs/sessions/S-01.md`.
+- Дополнение после закрытия окна: `docs/prompts/S-02.md`, правило 5 в `PLAN.md`, пункт в `AGENTS.template.md` §8, «Входной промпт» в `S-01`.
 
 ## Сломано / в работе
 
@@ -40,11 +41,9 @@
 | `test -d .github` | каталога нет | ✅ нет |
 | `git status --short` | пусто между окнами | ✅ пусто после коммита |
 
-## Дальше (3 шага)
+## Промпт следующего окна
 
-1. Шаг 0: `pwd`, `git rev-parse --show-toplevel`, `git remote -v` — сверить с этим файлом.
-2. Окно 2: `core/SPEC.template.md` → `rules/universal-rules.md` (`KIT-1…KIT-15`) → `presets/` → два ADR.
-3. В окне 2 заменить в `AGENTS.template.md` §5 упоминание `rules/universal-rules.md` кодом на markdown-ссылку — файл появится.
+[docs/prompts/S-02.md](docs/prompts/S-02.md) — готов к вставке в новый чат, править не нужно.
 
 ## Вопросы к пользователю
 
